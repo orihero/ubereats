@@ -31,7 +31,7 @@ const localRestaurants = [
     rating: 4.9,
   },
 ];
-export default function RestaurantItem() {
+export default function RestaurantItems(props) {
   return (
     <TouchableOpacity activeOpacity={1} style={{marginBottom: 30}}>
       {localRestaurants.map((restaurant, index) => (

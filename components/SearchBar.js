@@ -3,6 +3,26 @@ import {View, Text} from 'react-native';
 import {GooglePlacesAutocomplete} from 'react-native-google-places-autocomplete';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AntDesign from 'react-native-vector-icons/AntDesign';
+import {AutocompleteDropdown} from 'react-native-autocomplete-dropdown';
+
+export let AutocompleteSearchBar = () => {
+  return (
+    <View style={{paddingVertical: 10}}>
+      <AutocompleteDropdown
+        suggestionsListContainerStyle={{
+          backgroundColor: '#383b42',
+          zIndex: 100,
+          position: 'absolute',
+        }}
+        dataSet={[
+          {id: '1', title: 'UZBEKISTAN'},
+          {id: '2', title: 'Tashkent'},
+          {id: '3', title: 'Samarkand'},
+        ]}
+      />
+    </View>
+  );
+};
 
 export default function SearchBar() {
   return (

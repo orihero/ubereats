@@ -1,5 +1,5 @@
 import React from 'react';
-import {View, Text, Image, ScrollView} from 'react-native';
+import {View, Text, Image, ScrollView, TouchableOpacity} from 'react-native';
 
 const items = [
   {
@@ -32,31 +32,42 @@ const items = [
   },
 ];
 
-export default function Categories() {
+export default function Categories({categories, index, changeIndex}) {
   return (
-	  <View
-	  style={{
-		  marginTop: 5,
-		  backgroundColor: "#fff",
-		  paddingVertical: 10,
-		  paddingLeft:  20, 
-	  }}
-	  >
-    <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-      {items.map((item, index) => (
-        <View key={index } style={{alignItems: 'center', marginRight: 30}}>
-          <Image 
-            source={item.image}
-            style={{
-              width: 50,
-              height: 40 ,
-              resizeMode: 'contain',
-            }}
-          />
-          <Text style={{fontSize: 13, fontWeight: '900'}}>{item.text}</Text>
-        </View>
-      ))}
-    </ScrollView>
-	</View>
+    <View
+      style={{
+        marginTop: 8,
+        backgroundColor: '#fff',
+        paddingVertical: 10,
+        zIndex: 0,
+      }}>
+      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+        {categories?.map((item, i) => (
+          <TouchableOpacity
+            key={item.idCategory}
+            onPress={() => changeIndex(i)}>
+            <View
+              key={index}
+              style={{
+                alignItems: 'center',
+                marginHorizontal: 15,
+                backgroundColor: index === i ? 'green' : 'white',
+              }}>
+              <Image
+                style={{
+                  width: 50,
+                  height: 40,
+                  resizeMode: 'center',
+                }}
+                source={{uri: item.strCategoryThumb}}
+              />
+              <Text style={{fontSize: 13, fontWeight: '900'}}>
+                {item.strCategory}
+              </Text>
+            </View>
+          </TouchableOpacity>
+        ))}
+      </ScrollView>
+    </View>
   );
 }
