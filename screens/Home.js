@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from 'react';
 import {SafeAreaView, ScrollView, View} from 'react-native';
-import Categories from '../components/Categories';
-import HeaderTabs from '../components/HeaderTabs';
-import Header from '../components/HeaderTabs';
-import RestaurantItems, {localRestaurants} from '../components/RestaurantItems';
-import SearchBar, {AutocompleteSearchBar} from '../components/SearchBar';
+import Categories from '../components/home/Categories';
+import HeaderTabs from '../components/home/HeaderTabs';
+import Header from '../components/home/HeaderTabs';
+import RestaurantItems, {localRestaurants} from '../components/home/RestaurantItems';
+import SearchBar, {AutocompleteSearchBar} from '../components/home/SearchBar';
 import axios from 'axios';
 import {Divider} from 'react-native-elements';
-import BottomTabs from '../components/BottomTabs';
+import BottomTabs from '../components/home/BottomTabs';
 
-export default function Home() {
+export default function Home( navigation  ) {
   const [categories, setCategories] = useState([]);
   const [activeCategoryIndex, setActiveCategoryIndex] = useState(0);
   let getCategories = async () => {
@@ -37,7 +37,7 @@ export default function Home() {
           index={activeCategoryIndex}
           changeIndex={setActiveCategoryIndex}
         />
-        <RestaurantItems />
+        <RestaurantItems navigation={ navigation } />
       </ScrollView>
       <Divider width={1} />
       <BottomTabs />

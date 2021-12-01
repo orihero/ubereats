@@ -58,3 +58,23 @@ buck-out/
 
 # CocoaPods
 /ios/Pods/
+App.js
+navigation.js
+package.json
+yarn.lock
+components/BottomTabs.js
+components/Categories.js
+components/HeaderTabs.js
+components/RestaurantItems.js
+components/SearchBar.js
+components/home/BottomTabs.js
+components/home/Categories.js
+components/home/HeaderTabs.js
+components/home/RestaurantItems.js
+components/home/SearchBar.js
+components/restaurantDetail/About.js
+components/restaurantDetail/MenuItems.js
+components/restaurantDetail/ViewCart.js
+ios/Podfile.lock
+screens/Home.js
+screens/RestaurantDetail.js
